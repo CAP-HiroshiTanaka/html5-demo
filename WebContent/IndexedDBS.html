@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Indexed Database API Sample</title>
+<style>
+#message {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid gray;
+    font: 9pt Courier;
+    white-space: pre;
+}
+</style>
+<script>
+var ver = 201205201;
+var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
+var IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.mozIDBTransaction;
+var db = null;
+
+function print(msg) {
+    document.getElementById("message").innerHTML += msg + "\n";
+}
+
+function clearConsole() {
+    document.getElementById("message").innerHTML = "";
+}
+
+function createSample() {
+    print("----------------------------------------------------");
+    print("START: createSample()");
+    var reqOpen = indexedDB.open("sampleDB", ver);
+
+    reqOpen.onupgradeneeded = function(e) {
+        print("START: reqOpen.onupgradeneeded()");
+        db = reqOpen.result;
+        db.createObjectStore("sample", { "keyPath": "id" });
+        print("EXEC : createObjectStore()");
+        print("END  : reqOpen.onupgradeneeded()");
+    }
+    reqOpen.onsuccess = function(e) {
+        print("START: reqOpen.onsuccess()");
+        db = reqOpen.result;
+        if (db.setVersion) {
+            var reqVersion = db.setVersion(ver);
+            reqVersion.onsuccess = function() {
+                print("START: reqVersion.onsuccess()");
+                db.createObjectStore("sample", { "keyPath": "id" });
+                print("EXEC : createObjectStore()");
+                print("END  : reqVersion.onsuccess()");
+            }
+        }
+        print("END  : reqOpen.onsuccess()");
+    }
+    reqOpen.onerror = function(err) { print("ERROR: " + err.code + ":" + err.message); }
+    reqOpen.onblocked = function(err) { print("INFO : BLOCKED"); }
+    print("END  : createSample()");
+}
+
+function addSample() {
+    print("----------------------------------------------------");
+    print("START: addSample()");
+    var userList = [
+        { "id": 1, "name": "Yamada", "age": 18, "addr": "Tokyo" },
+        { "id": 2, "name": "Suzuki", "age": 27, "addr": "Osaka" },
+        { "id": 3, "name": "Tanaka", "age": 36, "addr": "Kyoto" },
+        { "id": 4, "name": "Kimura", "age": 45, "addr": "Aichi" }
+    ];
+
+    var transaction = db.transaction(["sample"], IDBTransaction.READ_WRITE);
+    var store = transaction.objectStore("sample");
+    for (var i = 0; i < userList.length; i++) {
+        var data = userList[i];
+        var reqAdd = store.add(data);
+        print("EXEC : add() " + data.id + " / " + data.name + " / " + data.age + " / " + data.addr);
+        reqAdd.onsuccess = function(e) { print("INFO : add() -> SUCCESS"); }
+        reqAdd.onerror = function(e) { print("INFO : add() -> ERROR"); }
+    }
+    print("END  : addSample()");
+}
+
+function getSample() {
+    print("----------------------------------------------------");
+    print("START: getSample()");
+    var transaction = db.transaction(["sample"], IDBTransaction.READ_ONLY);
+    var reqGet = transaction.objectStore("sample").get(1);
+    print("EXEC : get()");
+    reqGet.onsuccess = function(e) {
+        var data = reqGet.result;
+        print("DATA : " + data.id + " / " + data.name + " / " + data.age + " / " + data.addr);
+    }
+    reqGet.onerror = function(e) { print("ERROR: add() -> " + e); }
+    print("END  : getSample()");
+}
+
+function getAllSample() {
+    print("----------------------------------------------------");
+    print("START: getAllSample()");
+    var transaction = db.transaction(["sample"], IDBTransaction.READ_ONLY);
+    var reqGet = transaction.objectStore("sample").openCursor();
+    print("EXEC : openCursor()");
+    reqGet.onsuccess = function(e) {
+        var cursor = reqGet.result;
+        var data = cursor.value;
+        print("DATA : " + cursor.key + " / " + data.name + " / " + data.age + " / " + data.addr);
+        cursor.continue();
+    }
+    reqGet.onerror = function(e) { print("ERROR: add() -> " + e); }
+    print("END  : getAllSample()");
+}
+
+function deleteSample() {
+    print("----------------------------------------------------");
+    print("START: deleteSample()");
+    if (db) { db.close(); }
+    var reqDelete = indexedDB.deleteDatabase("sampleDB");
+    print("EXEC : deleteDatabase()");
+    reqDelete.onsuccess = function(e) { print("INFO : deleteDatabase() -> SUCCESS"); }
+    reqDelete.onerror = function(e) { print("ERROR: deleteDatabase() -> " + e); }
+    reqDelete.onblocked = function(e) { print("INFO : BLOCKED"); }
+    print("END  : deleteSample()");
+}
+</script>
+</head>
+<body>
+<button onclick="createSample()">CREATE</button>
+<button onclick="addSample()">ADD</button>
+<button onclick="getSample()">GET</button>
+<button onclick="getAllSample()">GET ALL</button>
+<button onclick="deleteSample()">DELETE</button>
+<button onclick="clearConsole()">CLEAR</button>
+<div id="message"></div>
+</body>
+</html>

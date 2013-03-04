@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web SQL Database Sample</title>
+<style>
+#message { margin:1em; width:500px; border:1px solid gray; padding:1em; }
+</style>
+<script type="text/javascript">
+<!--
+function print(msg) {
+    document.getElementById("message").innerHTML += msg + "<br>";
+}
+function test() {
+    print("FUNCSTION START");
+    var db = openDatabase("testDB", "", "Test Database", 1000);
+    db.transaction(
+        function(tr) {
+            print("TRANSACTION START");
+            print("CALLBACK START");
+            tr.executeSql("DROP TABLE IF EXISTS test", [],
+                function() { print("DROP TABLE SUCCESS"); },
+                function() { print("DROP TABLE ERROR"); }
+            );
+            tr.executeSql("CREATE TABLE test ( id, name )", [],
+                function() { print("CREATE TABLE SUCCESS"); },
+                function() { print("CREATE TABLE ERROR"); }
+            );
+            tr.executeSql("INSERT INTO test VALUES ( ?, ? )", [ '1', 'YAMADA' ],
+                function() { print("INSERT DATA YAMADA SUCCESS"); },
+                function() { print("INSERT DATA YAMADA ERROR"); }
+            );
+            tr.executeSql("INSERT INTO test VALUES ( ?, ? )", [ '2', 'SUZUKI' ],
+                function() { print("INSERT DATA SUZUKI SUCCESS"); },
+                function() { print("INSERT DATA SUZUKI ERROR"); }
+            );
+            tr.executeSql("SELECT * FROM test", [],
+                function(rt, rs) {
+                    print("SELECT: SUCCESS");
+                    for (var i = 0; i < rs.rows.length; i++) {
+                        var row = rs.rows.item(i);
+                        print(row.id + " / " + row.name);
+                    }
+                },
+                function() { print("SELECT: ERROR"); }
+            );
+            print("CALLBACK END");
+        },
+        function(err) { print("TRANSACTION ERROR"); },
+        function(   ) { print("TRANSACTION SUCCESS"); }
+    );
+    print("FUNCSTION END");
+}
+//-->
+</script>
+</head>
+<body>
+<button onclick="test()">TEST</button>
+<div id="message"></div>
+</body>
+</html>

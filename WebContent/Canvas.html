@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Insert title here</title>
+<!--[if IE]>
+<script type="text/javascript" src="scripts/excanvas.compiled.js"></script>
+<![endif]-->
+<script type="text/javascript">
+<!--
+	//ページ読み込み時に実行
+	onload = function() {
+	  draw1();
+	  draw2();
+	  draw3();
+	  draw4();
+	};
+	/* fillRect()の例 */
+	function draw1() {
+	  var canvas = document.getElementById('c1');
+	  if ( ! canvas || ! canvas.getContext ) { return false; }
+	  var ctx = canvas.getContext('2d');
+	  ctx.beginPath();
+	  ctx.fillRect(20, 20, 80, 40);
+	}
+	/* strokeRect()の例 */
+	function draw2() {
+	  var canvas = document.getElementById('c2');
+	  if ( ! canvas || ! canvas.getContext ) { return false; }
+	  var ctx = canvas.getContext('2d');
+	  ctx.beginPath();
+	  ctx.strokeRect(20, 20, 80, 40);
+	}
+	/* clearRect()の例 */
+	function draw3() {
+	  var canvas = document.getElementById('c3');
+	  if ( ! canvas || ! canvas.getContext ) { return false; }
+	  var ctx = canvas.getContext('2d');
+	  ctx.beginPath();
+	  ctx.fillRect(20, 20, 100, 100);
+	  ctx.beginPath();
+	  ctx.clearRect(50, 70, 60, 30);
+	}
+	function draw4() {
+	  var canvas = document.getElementById('c4');
+	  if ( ! canvas || ! canvas.getContext ) { return false; }
+	  var ctx = canvas.getContext('2d');
+	  ctx.beginPath();
+	  /* グラデーション領域をセット */
+	  var grad  = ctx.createRadialGradient(70,70,20,70,70,70);
+	  /* グラデーション終点のオフセットと色をセット */
+	  grad.addColorStop(0,'red');      // 赤
+	  grad.addColorStop(0.5,'yellow'); // 黄
+	  grad.addColorStop(1,'blue');     // 青
+	  /* グラデーションをfillStyleプロパティにセット */
+	  ctx.fillStyle = grad;
+	  /* 矩形を描画 */
+	  ctx.rect(0,0, 140,140);
+	  ctx.fill();
+	}
+// -->
+</script>
+</head>
+<body>
+<h2>fillRect()</h2>
+<canvas id="c1" width="140" height="140"></canvas>
+<h2>strokeRect()</h2>
+<canvas id="c2" width="140" height="140"></canvas>
+<h2>clearRect()</h2>
+<canvas id="c3" width="140" height="140"></canvas>
+<h2>gradation()</h2>
+<canvas id="c4" width="140" height="140"></canvas>
+</body>
+</html>

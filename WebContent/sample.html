@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset=utf-8>
+<script>
+//�ϐ�storage��sessionStorage���i�[
+var storage = sessionStorage;
+
+//�f�[�^��ۑ�����
+function set() {
+  var k = document.getElementById("k").value;
+  var v = document.getElementById("v").value;
+  storage.setItem(k, v);
+  show_result();
+}
+
+function cle() {
+  storage.clear();
+  show_result();
+}
+function show_result() {
+  var result = "";
+  //�ۑ�����Ă���f�[�^�̐��������[�v
+  for(var i=0; i<storage.length; i++){
+    //i�Ԗڂ̃L�[���擾
+    var k = storage.key(i);
+    //�L�[�ƒl���R�����i�F�j��؂�̃e�L�X�g�ɂ���
+    result += k + "�F" + storage.getItem(k) + "<br>";
+  }
+  //��̃��[�v�ō쐬���ꂽ�e�L�X�g��\������
+  document.getElementById("show_result").innerHTML = result;
+}
+</script>
+<title>Web Storage�@�T���v��</title>
+</head>
+<body>
+<p>
+�L�[�F<input id="k" type="text">
+�l�F<input id="v" type="text">
+<input type="button" value="�X�g���[�W�ɕۑ�" onClick="set()">
+</p>
+<p>
+<div id="show_result"></div>
+<input type="button" value="�X�g���[�W���N���A" onClick="cle()">
+</p>
+</body>
+</html>
