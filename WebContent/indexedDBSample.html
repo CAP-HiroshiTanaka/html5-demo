@@ -16,7 +16,7 @@
     var idb         = null;
     $(document).ready(function(){
         /* Chromeのみなので、こんな書き方をしなくても良いのですが。 */
-        if (window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.moz_indexedDB || window.msIndexedDB; ) {
+        if (window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.moz_indexedDB || window.msIndexedDB) {
             var indexedDB       = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.moz_indexedDB || window.msIndexedDB;
             var IDBTransaction  = window.IDBTransaction || window.webkitIDBTransaction || window.mozIDBTransaction || window.moz_IDBTransaction || window.msIDBTransaction;
             var IDBKeyRange     = window.IDBKeyRange || window.webkitIDBKeyRange || window.mozIDBKeyRange || window.moz_IDBKeyRange || window.msIDBKeyRange;
