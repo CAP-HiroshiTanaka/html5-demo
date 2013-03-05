@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>indexedDB</title>
-<script type="text/javascript" src="scripts/jquery.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/jquery.min.js" charset="UTF-8"></script>
 <meta http-equiv="Content-Style-type" content="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 <script type="text/javascript">
@@ -16,11 +16,11 @@
     var idb         = null;
     $(document).ready(function(){
         /* Chromeのみなので、こんな書き方をしなくても良いのですが。 */
-        if (window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB) {
-            var indexedDB       = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
-            var IDBTransaction  = window.IDBTransaction || window.webkitIDBTransaction || window.mozIDBTransaction;
-            var IDBKeyRange     = window.IDBKeyRange || window.webkitIDBKeyRange || window.mozIDBKeyRange;
-            var IDBCursor       = window.IDBCursor || window.webkitIDBCursor;
+        if (window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.moz_indexedDB || window.msIndexedDB; ) {
+            var indexedDB       = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.moz_indexedDB || window.msIndexedDB;
+            var IDBTransaction  = window.IDBTransaction || window.webkitIDBTransaction || window.mozIDBTransaction || window.moz_IDBTransaction || window.msIDBTransaction;
+            var IDBKeyRange     = window.IDBKeyRange || window.webkitIDBKeyRange || window.mozIDBKeyRange || window.moz_IDBKeyRange || window.msIDBKeyRange;
+            var IDBCursor       = window.IDBCursor || window.webkitIDBCursor || window.mozIDBCursor || window.moz_IDBCursor || window.msIDBCursor;
             /* IndexedDBをオープンします。*/
             var IDBreq  = indexedDB.open(idbProp.name);
         } else {
