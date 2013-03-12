@@ -1,0 +1,27 @@
+body {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+header {
+    background-color: #545CB3;
+    font-size: 112%;
+    color: #ffffff;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 10px;	
+    margin-bottom: 20px;
+}
+section {
+    text-align: center;
+}
+
+footer {
+    border-top: 1px dotted #545CB3;
+    font-size: 75%;
+    text-align: center;
+    margin: 1em auto;
+    bottom: 80px;
+}
