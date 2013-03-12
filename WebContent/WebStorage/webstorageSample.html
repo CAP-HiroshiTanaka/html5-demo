@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="ja">
+<meta charset="Shift-JIS">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+<script type="text/javascript">
+<!--
+  // ローカルストレージの初期化
+  localStorage.clear();
+
+  // データの設定
+  localStorage.setItem('key_01', 'value_01');
+  localStorage.key_02 = 'value_02';
+  localStorage['key_03'] = 'value_03';
+
+  // 保存されているデータの数
+  var lng = localStorage.length
+  document.write(lng+'<br>');
+
+  // データの読み込み
+  var hoge;
+  hoge = localStorage.getItem('key_01');
+  document.write(hoge+'<br>');
+  hoge = localStorage.key_02;
+  document.write(hoge+'<br>');
+  hoge = localStorage['key_03'];
+  document.write(hoge+'<br>');
+
+  // キーの削除
+  localStorage.removeItem('key_02');
+
+  hoge = localStorage.getItem('key_01');
+  document.write(hoge+'<br>');
+  hoge = localStorage.key_02;
+  document.write(hoge+'<br>');
+  hoge = localStorage['key_03'];
+  document.write(hoge+'<br>');
+
+
+  // ローカルストレージの初期化
+  sessionStorage.clear();
+
+  // データの設定
+  sessionStorage.setItem('key_01', 'value_01');
+  sessionStorage.key_02 = 'value_02';
+  sessionStorage['key_03'] = 'value_03';
+
+  // 保存されているデータの数
+  lng = localStorage.length
+  document.write(lng+'<br>');
+
+  // データの読み込み
+  hoge = sessionStorage.getItem('key_01');
+  document.write(hoge+'<br>');
+  hoge = sessionStorage.key_02;
+  document.write(hoge+'<br>');
+  hoge = sessionStorage['key_03'];
+  document.write(hoge+'<br>');
+
+  // キーの削除
+  sessionStorage.removeItem('key_02');
+
+  hoge = sessionStorage.getItem('key_01');
+  document.write(hoge+'<br>');
+  hoge = sessionStorage.key_02;
+  document.write(hoge+'<br>');
+  hoge = sessionStorage['key_03'];
+  document.write(hoge+'<br>');
+
+// -->
+</script>
+<link href="css/style.css" rel="stylesheet" type="text/css"></link>
+<style>
+</style>
+<title>my system - login</title>
+</head>
+<body>
+  <header>My System</header>
+  <nav></nav>
+  <div id="main">
+
+
+  </div>
+  <footer>&copy;Capital Asset Planning, Inc. All Right Reserved.</footer>
+</body>
+</html>
