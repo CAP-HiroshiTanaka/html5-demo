@@ -7,9 +7,12 @@
 <script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
 <script type="text/javascript">
 <!--
+var html5rocks = {};
+html5rocks.indexedDB = {};
+
 if (window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.moz_indexedDB || window.msIndexedDB ) {
-  // IndexedDBに関する処理を記述
- window.alert("OK")
+
+
 } else {
   window.alert("本ブラウザではIndexedDBが使えません");
 }

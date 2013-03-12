@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset=utf-8>
+<script>
+window.onload = function() {
+
+  var version = "1.1";
+  
+  // 結果表示する要素を取得
+  var msg = document.getElementById("msg");
+  //Google Chrome向けとFirefox向けのベンダープレフィックスを付けた書式も含める
+  var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.moz_indexedDB;
+
+  //データベースのオープン
+  var request = indexedDB.open("sample");
+
+  var db;
+
+  function _setVersion ( dbVer, storeSetting ){
+    
+    var req = self.db.setVersion( dbVer );
+    req.onblocked = function( evt ) {
+      // If some other tab is loaded with the database, then it needs to be closed
+      // before we can proceed.
+      //alert("Please close all other tabs with this site open!");
+      alert("データベースの構造が更新されました。このサイトを開く他のタブを閉じてください。");
+    };
+
+    req.onsuccess = function( evt ) { // IDBSuccessEvent
+      var db = evt.source || evt.target.source;
+      //var tx = evt.result;
+
+      // =============================================
+      // : Note that this method must only be called from a VERSION_CHANGE transaction callback.
+      // =============================================
+      var i, l, j, m, store;
+
+      // API動作確認のためにデータを破棄して、作り直しています。
+      var storeNames = db.objectStoreNames;
+      for( i=0, l=storeNames.length; i<l; i++ ) {
+        db.deleteObjectStore( storeNames[i] );
+      }
+
+      for( i=0, l=storeSetting.length; i<l; i++ ) {
+        var setting   = storeSetting[i];
+        var store = _createStoreIndex( storeSetting );
+
+        // Store values in the newly created objectStore.
+        if(setting.datas){
+          _addStores( store, setting.datas );
+        }
+      }
+    };
+  };
+  //データベースのオープンに成功した場合
+  request.onsuccess = function(evt) {
+    msg.innerHTML = "データベースをオープンしました。";
+    
+    // Chromiunm || for firefox4beta10
+    db = evt.result || evt.target.result;
+
+    // IndexedDatabase setting.
+    if ( self.db.version != dbVersion ) {
+
+      _setVersion( dbVersion, storeSetting );
+
+    } else {
+
+      msg.innerHTML = "exists already"
+      
+    }
+    var store = db.createObjectStore("Name", "keyPath");
+
+  }
+ 
+  //データベースのオープンに失敗した場合
+  request.onerror = function(evt) {
+    msg.innerHTML = "データベースをオープンできません。";
+  }
+
+}
+</script>
+<title>Indexed Databaseサンプル1</title>
+</head>
+<body>
+<h4>Indexed Databaseでデータベースをオープンできるかどうかを確認</h4>
+<div id="msg"></div>
+</body>
+</html>
