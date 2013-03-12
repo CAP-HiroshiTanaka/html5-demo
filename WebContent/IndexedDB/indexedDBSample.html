@@ -24,8 +24,7 @@
             var dbCursor       = window.IDBCursor || window.webkitIDBCursor || window.mozIDBCursor || window.moz_IDBCursor || window.msIDBCursor;
  
             /* IndexedDBをオープンします。*/
-            // var IDBreq  = indexedDB.open(idbProp.storeName);
-           var dbreq = indexedDB.open('test');
+            var IDBreq  = indexedDB.open(idbProp.storeName);
         } else {
             alert('このブラウザではindexedDB は利用できません');
         }
