@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset=utf-8>
+<script>
+// self executing function to keep our variables only for ourselves
+window.onload = (function(window) {
+ 
+// Taking care of the browser-specific prefixes.
+var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
+var IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || { READ_WRITE: 'readwrite' } ;
+ 
+//Open a connection to the database with the name "creatures" 
+//with the empty string as its version.  
+ 
+// create the creatures object and export it in the global scope in the same moment
+var creatures = window.creatures = {};
+creatures.indexedDB = {};
+ 
+creatures.indexedDB.open = function() {
+  var request = indexedDB.open("creatures");
+ 
+  //The open request isn't executed yet, but an IDBRequest object is returned. 
+  //Create listeners to the IDBRequest. 
+   
+  //If the version of the db changes, the onupgradeneeded callback is executed.
+  request.onupgradeneeded = function(event) {
+    // event.target.trans is a "changeversion" transaction
+     
+    // create an object store called "swamp"
+    // and define an optional parameter object, the "terrorizedPopulace" keyPath.        
+    // The keyPath must be what makes an object unique and every object must have it.  
+    // If every creature had a unique identification number, that would also be a good keyPath. 
+         
+    var datastore = db.createObjectStore("swamp",
+       {keyPath: "terrorizedPopulace"});
+  }
+   
+  //If the open request is successful, the onsuccess callback is executed. 
+  request.onsuccess = function(event) {
+    creatures.indexedDB.db = event.target.result;     
+    creatures.indexedDB.getAllSwampCreatures();
+  };
+ 
+  request.onerror = creatures.indexedDB.onerror;
+}
+ 
+})(this);
+</script>
+<title>Indexed Databaseサンプル1</title>
+</head>
+<body>
+<h4>Indexed Databaseでデータベースをオープンできるかどうかを確認</h4>
+<div id="msg"></div>
+</body>
+</html>
