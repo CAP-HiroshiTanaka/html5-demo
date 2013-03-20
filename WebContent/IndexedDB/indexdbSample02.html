@@ -4,7 +4,6 @@
 <meta charset=utf-8>
 <script>
 // self executing function to keep our variables only for ourselves
-window.onload = (function(window) {
  
 // Taking care of the browser-specific prefixes.
 var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
@@ -45,7 +44,7 @@ creatures.indexedDB.open = function() {
   request.onerror = creatures.indexedDB.onerror;
 }
  
-})(this);
+
 </script>
 <title>Indexed Databaseサンプル1</title>
 </head>

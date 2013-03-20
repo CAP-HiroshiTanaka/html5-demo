@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="ja">
+<meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+<script type="text/javascript">
+</script>
+<link href="css/style.css" rel="stylesheet" type="text/css"></link>
+<style>
+.scroll-table {/*外側のDIV要素*/
+	position: relative;
+	margin: 3em 0;/* THEAD,TFOOT要素の高さ */
+}
+.scroll-table div {/*内側のDIV要素*/
+	height: 120px;
+	overflow: auto;
+}
+.scroll-table table thead tr {/* scroll-tableの上 */
+	position: absolute;
+	bottom: 100%;
+}
+.scroll-table table tfoot tr {/* scroll-tableの下 */
+	position: absolute;
+	top: 100%;
+}
+.scroll-table table th ,
+.scroll-table table td {
+	text-align: center;
+	vertical-align: middle;
+}
+.scroll-table table thead tr th {
+	background: #83abcb;
+	width: 200px;
+	color: #fff;
+}
+.scroll-table table thead tr td {
+	background: #d99969;
+	width: 96px;
+}
+.scroll-table table tbody tr th {
+	background: #bedbf3;
+	width: 200px;
+}
+.scroll-table table tbody tr td {
+	background: #d9e7f3;
+	width: 96px;
+}
+</style>
+<title>my system - login</title>
+</head>
+<body>
+  <header>My System</header>
+  <nav></nav>
+  <div id="main">
+    <div class="scroll-table"><!-- 外側のDIV要素 -->
+    <div class="scroll-table-inner"><!-- 内側のDIV要素 -->
+    <table class="scrollTable">
+      <thead>
+      <tr>
+        <th></th><td>年齢</td><td>2013</td><td>2014</td><td>2015</td><td>2016</td><td>2017</td><td>2018</td><td>2019</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th>山田　孝之</th><td contenteditable="true" tabindex=1>36</td><td draggable=true>2013</td><td dropzone="copy" ondrop="getText(event, this)">2014</td><td>2015</td><td>2016</td><td>2017</td><td>2018</td><td>2019</td>
+      </tr>
+      <tr>
+        <th>山田　花子</th><td contenteditable="true" tabindex=2>30</td><td>2013</td><td>2014</td><td>2015</td><td>2016</td><td>2017</td><td>2018</td><td>2019</td>
+      </tr>
+      <tr>
+        <th>山田　聡</th><td contenteditable="true" tabindex=3>10</td><td>2013</td><td>2014</td><td>2015</td><td>2016</td><td>2017</td><td>2018</td><td>2019</td>
+      </tr>
+      <tr>
+        <th>山田　弥生</th><td contenteditable="true" tabindex=4>36</td><td>2013</td><td>2014</td><td>2015</td><td>2016</td><td>2017</td><td>2018</td><td>2019</td>
+      </tr>
+      <tr>
+        <th>山田　麻央</th><td contenteditable="true" tabindex=5>30</td><td>2013</td><td>2014</td><td>2015</td><td>2016</td><td>2017</td><td>2018</td><td>2019</td>
+      </tr>
+      <tr>
+        <th>山田　佳代</th><td contenteditable="true" tabindex=6>10</td><td>2013</td><td>2014</td><td>2015</td><td>2016</td><td>2017</td><td>2018</td><td>2019</td>
+      </tr>
+      <tbody>
+    </table>
+    </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  function getText(e, o) {
+   alert("test")
+    var dat = event.dataTransfer.item;
+    var i=dat.length;
+    while(--i>=0) {
+      alert("get!!");
+      break;
+    }
+  }
+</script>
+
+<div dropzone="copy f:image/gif f:image/jpeg f:image/bmp f:image/png " ondrop="getImage(event, this)">
+    ここに画像をドロップすると、画像が表示されます。
+    </div>
+
+    <!-- ドロップした画像の表示 -->
+<script type="text/javascript">
+    function getImage(e, o) {
+        //  ドロップされたデータを受け取る
+        alert("test");
+        var dat = event.dataTransfer.items;
+        var i=dat.length;
+        while(--i>=0) {
+            //  画像ファイル以外は処理しない
+            if (dat[i].kind != 'file' || data[i].type.indexOf('image/')!=0) continue;
+            //  既存の内容を除去する
+            o.innerHTML='';
+            //  画像データをオブジェクトに変換する
+            var o1=new Image();
+            o1.src=window.createObjectURL(data[i].getAsFile());
+            o.appendChild(o1);
+            break;
+            }
+        }
+    </script>
+  <footer>&copy;Capital Asset Planning, Inc. All Right Reserved.</footer>
+</body>
+</html>
