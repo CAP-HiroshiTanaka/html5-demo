@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="ja">
+<meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+<style>
+</style>
+<title>table</title>
+</head>
+<body>
+<!-- <header></header> -->
+  <nav></nav>
+  <div id="main">
+    <section>
+      <h1>結婚資金の準備</h1>
+      <div id="jQuerySample">
+        <h2>結婚資金、親の援助額</h2>
+        <div>
+        <p>
+        結婚費用の総支出額は役５３６．７万円（新生活準備金を含む）、双方の親等の援助総額は２２６．６万円。
+        子ども１人１１３．３万円。
+        あくまでも平均です。
+        子どもの結婚にかける費用もご夫婦で意思を統一しておくことが大切です。
+        リクルート「結婚情報誌」調べ平成１６年全国平均
+        </p>
+        <p>
+        ●結婚にかかる費用も地域によって違います。全国的には平均５３６．７万円ですが、下記のような格差があります。
+        <lu>
+          <li>北海道・・・３０３．８万円</li>
+          <li>首都圏・・・５７１．４万円</li>
+          <li>東海・・・・６２７．６万円</li>
+          <li>関西・・・・６４１．１万円</li>
+          <li>中国・・・・５０５．０万円</li>
+          <li>九州・・・・５１２．２万円</li>
+          <li>全国平均・・５３６．７万円</li>
+        </lu>
+        </p>
+        </div>
+        <h2>結婚の額について</h2>
+        <div>
+        <p>
+        結納金は、今日では収入に見合った応分の額といわれています。
+        男性の場合は、サラリーマンの月収の２、３ヶ月というのが相場ですが、資産や地方によっていろいろ異なっています。
+        女性は通常、男性の半分を包む半返しが慣例になっています。
+        関西では、結納の際にはお返しをせず、嫁入りの時大体三分の一程度を土産として持参する風習があります。
+        </p>
+        <p>
+        最近は半返しという形式にとらわれず、初めから男性側の額を少な目にし、女性からはお返しをしないか、あるいは一割程度のごく小額を包む方式も増えています。
+        また結納金の内容によって違いがあるので、その違いなどあらかじめ知っておいて、双方の婚約者および両親にアドバイスすることが大切です。
+        </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script type="text/javascript">
+$(function(){
+  $("#jQuerySample div").css("display", "none");
+  $("#jQuerySample h2").each(function(i) {
+    $(this).click(function() {
+      $("#jQuerySample div").eq(i).toggle();
+    });
+  });
+});
+</script>
+<!-- <footer>&copy;Capital Asset Planning, Inc. All Right Reserved.</footer> -->
+</body>
+</html>
+
+

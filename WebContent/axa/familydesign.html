@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="ja">
+<meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+<style>
+#age {
+  width: 20px;
+}
+#analysisDate {
+  width: 70px;
+}
+</style>
+<title>table</title>
+</head>
+<body>
+<!-- <header></header> -->
+  <nav></nav>
+  <div id="main">
+    <section>
+      <h1>ファミリデザイン</h1>
+      <table order=0 cellspaceing=0 cellpadding=0>
+        <tr><td>フリガナ</td><td><input type="text" placeholder="フリガナ"></td><tr>
+        <tr><td>氏名</td><td><input type="text" placeholder="氏名">様</td></tr>
+        <tr>
+          <td>性別</td><td>
+            <select>
+              <option value="men">男</option>
+              <option value="women">女</option>
+            </select>
+          </td>
+        </tr>
+        <tr><td>生年月日</td><td><input id="birthday" type="date" value="1960-01-01"><input type="text" readonly id="age" />歳</td></tr>
+        <script type="text/javascript">
+<!--
+$(function() {
+  $('#birthday').change (
+    function() {
+      var birthday = new Date(this.value);
+      var today = new Date();
+
+      var by = birthday.getFullYear();
+      var ty = today.getFullYear();
+      
+      $('#age').val(ty - by);
+    }
+  );
+});
+//-->
+        </script>
+        <tr>
+          <td colspan=2>
+            <table order=0 cellspaceing=0 cellpadding=0>
+              <tr><td rowspan=2>家<br>族</td><td colspan=2><br><td></tr>
+              <tr>
+                <td>
+                  <input type="radio" name="haigusya">配偶者あり<br>
+                  <input type="radio" name="haigusya">配偶者なし　結婚予定あり<br>
+                  <input type="radio" name="haigusya">配偶者なし　結婚予定なし
+                </td>
+                <td>
+                  <input type="radio" name="kodomo">子供あり<br>
+                  <input type="radio" name="kodomo">子供なし　予定あり<br>
+                  <input type="radio" name="kodomo">子供なし　予定なし
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr><td>分析日</td><td><input id="analysisDate" type="text" readonly></td></tr>
+<script type="text/javascript">
+<!--
+$(function() {
+  var ymd = new Date();
+  var m = ymd.getMonth() < 9 ? "0" + (ymd.getMonth() + 1) : (ymd.ymd.getMonth() + 1);
+  var d = ymd.getDate() < 10 ? "0" + ymd.getDate() : ymd.getDate(); 
+  $('#analysisDate').val(ymd.getFullYear() + "-" + m + "-" + d);
+})
+//-->
+</script>
+      </table>
+    </section>
+  </div>
+<!-- <footer>&copy;Capital Asset Planning, Inc. All Right Reserved.</footer> -->
+</body>
+</html>
+
+

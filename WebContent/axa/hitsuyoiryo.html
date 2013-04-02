@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="ja">
+<meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+<style>
+</style>
+<title>table</title>
+</head>
+<body>
+<!-- <header></header> -->
+  <nav></nav>
+  <div id="main">
+    <section>
+      <h1>必要医療費確認</h1>
+医療リスクに対する必要額を以下に示します。備えを必要とする医療リスクを選択してください
+      <div id="item">
+        <h2>胃がん<input type="checkbox"></h2>
+        <div>
+        <p>
+<p>
+入院日数<input type="text">日
+差額ベット代
+<select>
+<option value="5000">5,000円</option>
+<option value="10000">10,000円</option>
+<option value="15000">15,000円</option>
+</select>
+</p>
+<p>入院・治療に必要な費用</p>
+<p>入院中の生活費</p>
+<p>先進医療</p>
+<p>
+<input type="checkbox">先進医療を医療した治療を受ける
+追加事故負担額<input type="text" readonly>円
+</p>
+<p>
+負担一時額：<input type="text" readonly>円
+負担日数：<input type="text" readonly>円
+合計：<input type="text" readonly>円
+</p>
+        </p>
+        </div>
+        <h2>脳梗塞<input type="checkbox"></h2>
+        <div>
+        <p>
+        </p>
+        </div>
+        <h2>虚血性心疾患<input type="checkbox"></2>
+        <div>
+        <p>
+        </p>
+        </div>
+      </div>
+    </section>
+    <section>
+一時額合計：<input type="text" readonly>円
+日額合計：<input type="text" readonly>円
+自己負担額総合計：<input type="text" readonly>円
+    </section>
+  </div>
+
+<script type="text/javascript">
+$(function(){
+  $("#item div").css("display", "none");
+  $("#item h2").each(function(i) {
+    $(this).click(function() {
+      $("#item div").eq(i).toggle();
+    });
+  });
+});
+</script>
+<!-- <footer>&copy;Capital Asset Planning, Inc. All Right Reserved.</footer> -->
+</body>
+</html>
+
+
