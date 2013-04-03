@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="ja">
+<meta charset="UTF-8">
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+
+<style>
+.tablefix {
+  width:800px;
+  border-collapse:collapse;
+  border-spacing:0
+}
+.tablefix thead th {
+  background-color:#333;
+  color:#fff;
+  text-align:center;
+  vertical-align:middle;
+  white-space:nowrap
+}
+td {
+  text-align: center;
+}
+#tablefix1 {
+  width: 1200px
+}
+</style>
+
+<title>table</title>
+</head>
+
+<body>
+  <header>My System</header>
+  <nav></nav>
+  <div id="main">
+
+<table id="tablefix1"  class="tablefix">
+      <thead>
+        <tr>
+          <th colspan="3"></th><th>2013</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th><th>2027</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="name">山田　孝之</th><th>様</th><th>歳</th><td>29</td><td>30</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td><td>39</td><td>40</td><td>42</td><td>42</td><td>43</td>
+        </tr>
+        <tr>
+          <th class="name">山田　花子</th><th>様</th><th>歳</th><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td>
+        </tr>
+        <tr>
+          <th class="name">山田　しおり</th><th>様</th><th>歳</th><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+        </tr>
+      </tbody>
+</table>
+<script type="text/javascript" src="js/jquery.tablefix_1.0.0.js" charset="UTF-8"></script>
+<script type="text/javascript">
+$(function() {
+    $('#tablefix1').tablefix({width: 800, height: 100, fixRows: 1, fixCols: 3});
+})
+</script>
+  </div>
+  <footer>&copy;Capital Asset Planning, Inc. All Right Reserved.</footer>
+</body>
+</html>

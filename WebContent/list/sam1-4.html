@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="ja">
+<meta charset="UTF-8">
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+
+<style>
+.tablefix {
+  width:800px;
+  border-collapse:collapse;
+  border-spacing:0
+}
+.tablefix thead th {
+  background-color:#333;
+  color:#fff;
+  text-align:center;
+  vertical-align:middle;
+  white-space:nowrap
+}
+#tablefix1 {
+  width:800px
+}
+</style>
+
+<title>table</title>
+</head>
+
+<body>
+  <header>My System</header>
+  <nav></nav>
+  <div id="main">
+
+<table id="tablefix1"  class="tablefix">
+    <thead>
+    <tr>
+        <th rowspan="2">ヘッダA</th>
+        <th rowspan="2">ヘッダB</th>
+        <th colspan="2">ヘッダC</th>
+        <th rowspan="2">ヘッダD</th>
+        <th rowspan="2">ヘッダE</th>
+    </tr>
+    <tr>
+        <th>ヘッダ C-1</th>
+        <th>ヘッダ C-2</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>データ</td>
+        <td>データ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+    </tr>
+    <tr>
+        <td>データ</td>
+        <td>データ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+    </tr>
+    <tr>
+        <td>データ</td>
+        <td>データ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+    </tr>
+    <tr>
+        <td>データ</td>
+        <td>データ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+    </tr>
+    <tr>
+        <td>データ</td>
+        <td>データ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+        <td>データデータデータデータデータデータデータデータデータデータデータデータ</td>
+    </tr>
+    </tbody>
+</table>
+<script type="text/javascript" src="js/jquery.tablefix_1.0.0.js" charset="UTF-8"></script>
+<script type="text/javascript">
+$(function() {
+    $('#tablefix1').tablefix({width: 1200, height: 200, fixRows: 2, fixCols: 3});
+})
+</script>
+  </div>
+  <footer>&copy;Capital Asset Planning, Inc. All Right Reserved.</footer>
+</body>
+</html>

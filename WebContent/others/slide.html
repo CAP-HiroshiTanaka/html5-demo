@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="ja">
+<meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/jquery.flickable-1.0b3.js" charset="UTF-8"></script>
+<style type="text/css">
+      #flickable6 {
+        border: 1px solid #CCC;
+        width: 482px;
+        height: 322px;
+        overflow: hidden;
+      }
+      #flickable6 ul {
+        list-style: none;
+        width: 960px;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+      #flickable6 ul li {
+        width: 440px;
+        margin: 0;
+        padding: 20px;
+        float: left;
+      }
+      #flickable6 h4 {
+        font-size: 1.75em; 
+      }
+    </style>
+</head>
+<body>
+   
+
+  <script type="text/javascript">
+    $(function() {
+      $('#flickable6').flickable({
+        section: 'li'
+      });
+    });
+  </script> 
+    <div id="flickable6">
+      <ul> 
+        <li>
+          <h4>Dummy Image</h4>
+          aaaaaaaaaa
+        </li>
+        <li>
+          <h4>Dummy Form</h4>
+          <input type="checkbox" value="1"> checkbox
+          <br>
+          <input type="radio" name="radio"> radio1
+          <input type="radio" name="radio"> radio2
+          <br>
+          <select>
+            <option>select1</option>
+            <option>select2</option>
+            <option>select3</option>
+          </select>
+          <br>
+          <textarea style="width:300px;height:60px;"></textarea>
+          <br>
+          <button>button</button>
+        </li>
+      </ul>
+      <div style="clear:both;"></div>
+    </div>
+</body>
+</html>
