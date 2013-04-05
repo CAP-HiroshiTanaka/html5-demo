@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<title>AXA MENU</title>
+	
+	<link rel="stylesheet" href="css/menu.css" type="text/css" media="screen, projection"/>
+	<!--[if lte IE 7]>
+        <link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" />
+    <![endif]-->
+	<link href="css/style-menu.css" rel="stylesheet" type="text/css">	
+	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>	
+	<script type="text/javascript" language="javascript" src="js/jquery.dropdownPlain.js"></script>
+</head>
+
+<body>
+
+	<div id="page-wrap">
+	
+        <ul class="dropdown">
+        	<li><a href="#">ライフプランステップ</a></li>
+                <li><a href="#">お客様情報入力</a></li>
+        	<li><a href="#">必要なお金</a>
+        		<ul class="sub_menu">
+        			<li><a href="#">教育について</a></li>
+        			<li><a href="#">結婚について</a></li>
+                                <li><a href="#">住宅について</a></li>
+                                <li><a href="#">旅行について</a></li>
+                                <li><a href="#">耐久消費財について</a></li>
+                                <li><a href="#">セカンドライフについて</a></li>
+                                <li><a href="#">その他の計画について</a></li>
+                                <li><a href="#">必要なお金合計</a></li>
+        		</ul>
+        	</li>
+                <li><a href="#">優先順位</a></li>
+                <li><a href="#">準備済のお金</a>
+                        <ul class="sub_menu">
+                                <li><a href="#">準備済のお金とは</a></li>
+                                <li><a href="#">預貯金について</a></li>
+                                <li><a href="#">年収から支出したイベント</a></li>
+                                <li><a href="#">万一のときの保証について</a></li>
+                                <li><a href="#">老後の保証について</a></li>
+                                <li><a href="#">入院・介護の保証について</a></li>
+                                <li><a href="#">公的年金について</a></li>
+                                <li><a href="#">年収について</a></li>
+                                <li><a href="#">退職金について</a></li>
+                                <li><a href="#">企業年金について</a></li>
+                                <li><a href="#">その他準備済のお金について</a></li>
+                        </ul>
+                </li>
+                <li><a href="#">準備済のお金合計</a></li>
+                <li><a href="#">くらしを叶える資金</a></li>
+                <li><a href="#">くらしを支えるお金</a>
+                        <ul class="sub_menu">
+                                <li><a href="#">くらしを支える資金とは</a></li>
+                                <li><a href="#">くらしを支える資金分析</a></li>
+                        </ul>
+                </li>
+                <li><a href="#">紹介と次回アポイント</a>
+                        <ul class="sub_menu">
+                                <li><a href="#">紹介依頼</a></li>
+                                <li><a href="#">次回アポイント</a></li>
+                        </ul>
+                </li>
+<!--                <li><a href="#">簡単シミュレーション</a></li> -->
+        </ul>
+		
+	</div>
+
+    <section>
+      <h1>ファミリデザイン</h1>
+      <table order=0 cellspaceing=0 cellpadding=0>
+        <tr><td>フリガナ</td><td><input type="text" placeholder="フリガナ"></td><tr>
+        <tr><td>氏名</td><td><input type="text" placeholder="氏名">様</td></tr>
+        <tr>
+          <td>性別</td><td>
+            <select>
+              <option value="men">男</option>
+              <option value="women">女</option>
+            </select>
+          </td>
+        </tr>
+        <tr><td>生年月日</td><td><input id="birthday" type="date" value="1960-01-01"><input type="text" readonly id="age" />歳</td></tr>
+        <script type="text/javascript">
+<!--
+$(function() {
+  $('#birthday').change (
+    function() {
+      var birthday = new Date(this.value);
+      var today = new Date();
+
+      var by = birthday.getFullYear();
+      var ty = today.getFullYear();
+      
+      $('#age').val(ty - by);
+    }
+  );
+});
+//-->
+        </script>
+        <tr>
+          <td colspan=2>
+            <table order=0 cellspaceing=0 cellpadding=0>
+              <tr><td rowspan=2>家<br>族</td><td colspan=2><br><td></tr>
+              <tr>
+                <td>
+                  <input type="radio" name="haigusya">配偶者あり<br>
+                  <input type="radio" name="haigusya">配偶者なし　結婚予定あり<br>
+                  <input type="radio" name="haigusya">配偶者なし　結婚予定なし
+                </td>
+                <td>
+                  <input type="radio" name="kodomo">子供あり<br>
+                  <input type="radio" name="kodomo">子供なし　予定あり<br>
+                  <input type="radio" name="kodomo">子供なし　予定なし
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr><td>分析日</td><td><input id="analysisDate" type="text" readonly></td></tr>
+<script type="text/javascript">
+<!--
+$(function() {
+  var ymd = new Date();
+  var m = ymd.getMonth() < 9 ? "0" + (ymd.getMonth() + 1) : (ymd.ymd.getMonth() + 1);
+  var d = ymd.getDate() < 10 ? "0" + ymd.getDate() : ymd.getDate(); 
+  $('#analysisDate').val(ymd.getFullYear() + "-" + m + "-" + d);
+})
+//-->
+</script>
+      </table>
+    </section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>AXA LNAS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Accordion with CSS3" />
+        <meta name="keywords" content="accordion, css3, sibling selector, radio buttons, input, pseudo class" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/demostyle.css" />
+        <script type="text/javascript" src="js/modernizr.custom.29473.js"></script>
+    </head>
+    <body>
+      <h1>必要医療費確認</h1>
+医療リスクに対する必要額を以下に示します。備えを必要とする医療リスクを選択してください
+        <div class="container">
+			<!-- Codrops top bar -->
+			<section class="ac-container">
+				<div>
+					<input id="ac-1" name="accordion-1" type="radio" checked style="display: none;"/>
+					<label for="ac-1">胃がん<input type="checkbox"></label>
+					<article class="ac-large">
+<p>
+入院日数<input type="text">日
+差額ベット代
+<select>
+<option value="5000">5,000円</option>
+<option value="10000">10,000円</option>
+<option value="15000">15,000円</option>
+</select><br>
+入院・治療に必要な費用<br>
+入院中の生活費<br>
+先進医療<br>
+<input type="checkbox">先進医療を医療した治療を受ける<br>
+追加事故負担額<input type="text" readonly>円
+負担一時額：<input type="text" readonly>円
+負担日数：<input type="text" readonly>円
+合計：<input type="text" readonly>円
+</p>
+
+                                        </article>
+				</div>
+				<div>
+					<input id="ac-2" name="accordion-1" type="radio" style="display: none;" />
+					<label for="ac-2">脳梗塞<input type="checkbox"></label>
+					<article class="ac-large">
+<p>
+入院日数<input type="text">日
+差額ベット代
+<select>
+<option value="5000">5,000円</option>
+<option value="10000">10,000円</option>
+<option value="15000">15,000円</option>
+</select><br>
+入院・治療に必要な費用<br>
+入院中の生活費<br>
+先進医療<br>
+<input type="checkbox">先進医療を医療した治療を受ける<br>
+追加事故負担額<input type="text" readonly>円
+負担一時額：<input type="text" readonly>円
+負担日数：<input type="text" readonly>円
+合計：<input type="text" readonly>円  
+</p>
+					</article>
+				</div>
+				<div>
+					<input id="ac-3" name="accordion-1" type="radio" style="display: none;"/>
+					<label for="ac-3">虚血性心疾患<input type="checkbox"></label>
+					<article class="ac-large">
+<p>
+入院日数<input type="text">日
+差額ベット代
+<select>
+<option value="5000">5,000円</option>
+<option value="10000">10,000円</option>
+<option value="15000">15,000円</option>
+</select><br>
+入院・治療に必要な費用<br>
+入院中の生活費<br>
+先進医療<br>
+<input type="checkbox">先進医療を医療した治療を受ける<br>
+追加事故負担額<input type="text" readonly>円
+負担一時額：<input type="text" readonly>円
+負担日数：<input type="text" readonly>円
+合計：<input type="text" readonly>円  
+</p>	
+					</article>
+				</div>
+				</div>
+			</section>
+        </div>
+<div style="position: absolute; top: 500px; left: 250px;">
+一時額合計：<input type="text" readonly>円
+日額合計：<input type="text" readonly>円
+自己負担額総合計：<input type="text" readonly>円
+</div>
+    </body>
+</html>
