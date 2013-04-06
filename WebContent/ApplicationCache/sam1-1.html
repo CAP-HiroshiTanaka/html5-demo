@@ -10,15 +10,36 @@
 <link href="css/style.css" rel="stylesheet" type="text/css"></link>
 <style>
 </style>
-<title>my system - login</title>
+<title>Application Cache Sample</title>
 </head>
 <body>
-  <header>My System</header>
+  <!-- <header>My System</header> -->
   <nav></nav>
   <div id="main">
 
 
+<div id="joukyou"></div>
+<script>
+var joukyou = document.getElementById("joukyou");
+window.applicationCache.addEventListener("checking", function () {
+  joukyou.innerHTML += "<br>更新をチェック中...";
+}, false);
+window.applicationCache.addEventListener("noupdate", function () {
+  joukyou.innerHTML += "<br>更新はありません";
+}, false);
+window.applicationCache.addEventListener("downloading", function () {
+  joukyou.innerHTML += "<br>ダウンロード中...";
+}, false);
+window.applicationCache.addEventListener("cached", function () {
+  joukyou.innerHTML += "<br>キャッシュしました";
+}, false);
+window.applicationCache.addEventListener("error", function () {
+  joukyou.innerHTML += "<br>エラーが発生しました";
+}, false);
+</script>
+<input type="button" onclick="window.applicationCache.update()" value="キャッシュを更新する">
+
   </div>
-  <footer>&copy;Capital Asset Planning, Inc. All Right Reserved.</footer>
+  <footer>Fumio SAGAWA. All Right Reserved.</footer>
 </body>
 </html>
